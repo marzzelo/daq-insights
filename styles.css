@@ -191,6 +191,7 @@ input:focus, select:focus, textarea:focus{border-color: rgba(0,212,255,.45); box
   margin-bottom: 0.2em; 
   background: linear-gradient(135deg, var(--text) 0%, var(--brand2) 100%); 
   -webkit-background-clip: text; 
+  background-clip: text;
   -webkit-text-fill-color: transparent; 
   display: inline-block;
 }
