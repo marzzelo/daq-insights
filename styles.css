@@ -28,6 +28,7 @@ a{color:inherit; text-decoration:none}
 a:hover{opacity:.92}
 
 .container{width:min(1120px, 92vw); margin:0 auto}
+.container.narrow{max-width:720px}
 
 .skip{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden}
 .skip:focus{left:12px; top:12px; width:auto; height:auto; padding:10px 12px; background:#111a3c; border:1px solid var(--line); border-radius:12px; z-index:9999}
@@ -66,7 +67,7 @@ a:hover{opacity:.92}
 .hero__grid{display:grid; grid-template-columns: 1.12fr .88fr; gap:22px; align-items:start}
 .hero__copy h1{font-size:42px; line-height:1.05; margin:14px 0 14px}
 .grad{background: linear-gradient(135deg, var(--brand), var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
-.lead{color:var(--muted); font-size:16px; line-height:1.55; margin:0 0 18px}
+.lead{color:var(--muted); font-size:16px; line-height:1.75; margin:0 0 22px}
 .hero__cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
 
 .hero__trust{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
@@ -94,19 +95,19 @@ a:hover{opacity:.92}
 
 .section{padding:58px 0}
 .section--alt{background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0))}
-.section__head{margin-bottom:18px}
-.section__head h2{margin:0 0 8px; font-size:28px}
-.section__head p{margin:0; color:var(--muted); line-height:1.55}
+.section__head{margin-bottom:24px}
+.section__head h2{margin:0 0 12px; font-size:2rem; color:var(--brand); border-bottom:1px solid var(--line); padding-bottom:10px}
+.section__head p{margin:0; color:var(--muted); line-height:1.75}
 
 .card{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:22px; padding:18px; box-shadow: 0 18px 50px rgba(0,0,0,.25)}
 .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
 .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:16px}
 
-.card h3{margin:0 0 10px; font-size:16px}
-.card p{margin:0 0 10px; color:var(--muted); line-height:1.55}
+.card h3{margin:0 0 12px; font-size:16px; color:var(--brand2)}
+.card p{margin:0 0 12px; color:var(--muted); line-height:1.75}
 
-.bullets{margin:10px 0 0; padding-left:18px; color:var(--muted)}
-.bullets li{margin:6px 0}
+.bullets{margin:12px 0 0; padding-left:18px; color:var(--muted); line-height:1.7}
+.bullets li{margin:8px 0}
 
 .callout{margin-top:16px; padding:16px; border-radius:22px; border:1px solid rgba(0,212,255,.22); background: rgba(0,212,255,.08)}
 .callout h3{margin:0 0 6px}
@@ -114,6 +115,7 @@ a:hover{opacity:.92}
 .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px}
 .price{border:1px solid var(--line); background: rgba(255,255,255,.03); border-radius:22px; padding:18px}
 .price--featured{border-color: rgba(124,92,255,.55); background: linear-gradient(180deg, rgba(124,92,255,.12), rgba(255,255,255,.03))}
+.price h3{color:var(--brand2)}
 .price__top h3{margin:0}
 .price__top p{margin:6px 0 0}
 .price__body ul{margin:12px 0 0; padding-left:18px; color:var(--muted)}
@@ -123,7 +125,7 @@ a:hover{opacity:.92}
 .timeline{display:grid; gap:12px}
 .titem{display:flex; gap:12px; align-items:flex-start; padding:14px; border:1px solid var(--line); border-radius:20px; background: rgba(255,255,255,.02)}
 .tbadge{width:32px; height:32px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:800; background: rgba(124,92,255,.16); border:1px solid rgba(124,92,255,.28)}
-.titem h3{margin:0 0 6px; font-size:15px}
+.titem h3{margin:0 0 6px; font-size:15px; color:var(--brand2)}
 .titem p{margin:0; color:var(--muted)}
 
 .priceTag{font-weight:800; margin:6px 0 0}
@@ -147,6 +149,78 @@ input:focus, select:focus, textarea:focus{border-color: rgba(0,212,255,.45); box
 .footer__grid{display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-wrap:wrap}
 .footer__links{display:flex; gap:14px}
 .footer__links a{color:var(--muted); font-size:13px}
+
+.btn-help {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 9px;
+  font-size: 10px;
+  border-radius: 6px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--brand2);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-help:hover {
+  background: var(--brand2);
+  color: #081022;
+  border-color: var(--brand2);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+/* Typography for text-heavy pages (e.g. objetivo.html) */
+.narrow { padding-top: 60px; padding-bottom: 80px; }
+.narrow h1 { 
+  font-size: 2.8rem; 
+  margin-bottom: 0.2em; 
+  background: linear-gradient(135deg, var(--text) 0%, var(--brand2) 100%); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  display: inline-block;
+}
+.narrow h2 { 
+  font-size: 1.8rem; 
+  color: var(--brand); 
+  margin-top: 2.5em; 
+  margin-bottom: 0.8em; 
+  border-bottom: 1px solid var(--line); 
+  padding-bottom: 10px; 
+}
+.narrow h3 { 
+  font-size: 1.4rem; 
+  color: var(--brand2); 
+  margin-top: 2em; 
+  margin-bottom: 0.6em; 
+}
+.narrow p { 
+  line-height: 1.85; 
+  margin-bottom: 1.8em; 
+  font-size: 1.05rem; 
+  color: var(--muted);
+}
+.narrow ul { 
+  line-height: 1.8; 
+  margin-bottom: 2em; 
+}
+.narrow li { margin-bottom: 0.5em; }
+.narrow strong { color: var(--text); font-weight: 600; }
+.narrow hr { border: 0; border-top: 1px solid var(--line); margin: 3em 0; }
+.narrow blockquote {
+  border-left: 4px solid var(--brand);
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  margin: 2em 0;
+  color: var(--text);
+}
 
 @media (max-width: 920px){
   .hero__grid{grid-template-columns: 1fr}
