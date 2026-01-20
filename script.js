@@ -29,7 +29,7 @@
       const deadline = (data.get('deadline')||'').toString().trim();
       const stage = (data.get('stage')||'').toString().trim();
 
-      const subject = encodeURIComponent(`[DAQ Insight] Solicitud de cotización — ${company || name || 'Consulta'}`);
+      const subject = encodeURIComponent(`[DAQ Insights] Solicitud de cotización — ${company || name || 'Consulta'}`);
       const body = encodeURIComponent(
 `Hola,\n\nMe contacto para solicitar una cotización.\n\n`+
 `Nombre: ${name}\nEmpresa: ${company}\nEmail: ${email}\n`+
