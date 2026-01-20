@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calidad de señal, SNR, deriva y offset – DAQ Insights</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mantener el mismo estilo del sitio -->
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<main class="container narrow">
+
+  <h1>Calidad de señal, SNR, deriva y offset</h1>
+  <h2>Qué significan y por qué determinan la confiabilidad de una medición</h2>
+
+  <p>
+    En adquisición de datos, no alcanza con “ver una señal”:
+    lo importante es si esa señal representa fielmente el fenómeno físico que se desea medir.
+    En <strong>DAQ Insights</strong> evaluamos la <em>calidad de señal</em> analizando, entre otros factores,
+    la relación señal/ruido (SNR), la presencia de deriva y el offset (desplazamiento del cero).
+  </p>
+
+  <p>
+    Estos conceptos no son un detalle: pueden definir si los datos son adecuados para análisis comparativos,
+    decisiones de diseño, verificación de límites o conclusiones críticas.
+  </p>
+
+  <hr>
+
+  <h3>¿Qué entendemos por “calidad de señal”?</h3>
+
+  <p>
+    La <strong>calidad de señal</strong> describe qué tan bien la señal digitalizada refleja el fenómeno real.
+    Una señal de alta calidad suele tener:
+  </p>
+
+  <ul>
+    <li><strong>Bajo ruido</strong> en relación con la variación útil</li>
+    <li><strong>Estabilidad temporal</strong> (sin cambios lentos injustificados)</li>
+    <li><strong>Cero correctamente definido</strong> o offset documentado y corregible</li>
+    <li><strong>Ausencia de artefactos</strong> (saltos, recortes, saturaciones, glitches)</li>
+  </ul>
+
+  <p>
+    Una señal puede verse “linda” en un gráfico y, sin embargo,
+    ser inadecuada para el objetivo del análisis. Por eso, la evaluación de calidad
+    siempre se hace con criterios técnicos explícitos.
+  </p>
+
+  <hr>
+
+  <h3>Relación señal/ruido (SNR)</h3>
+
+  <p>
+    La <strong>relación señal/ruido</strong> (SNR, <em>Signal-to-Noise Ratio</em>) indica cuánto se destaca
+    la señal útil por encima del ruido de fondo. En términos simples:
+  </p>
+
+  <blockquote>
+    “¿La señal real sobresale claramente del ruido, o el ruido la tapa?”
+  </blockquote>
+
+  <p>
+    Un SNR alto mejora la capacidad de detectar cambios pequeños y aumenta la
+    <strong>resolución efectiva</strong> de la medición. Un SNR bajo hace que el dato sea inestable,
+    difícil de interpretar y muy sensible al filtrado.
+  </p>
+
+  <h4>¿De dónde viene el ruido?</h4>
+
+  <ul>
+    <li><strong>Ruido electrónico</strong> del acondicionador, ADC o alimentación</li>
+    <li><strong>Ruido intrínseco</strong> del sensor/transductor</li>
+    <li><strong>Interferencias electromagnéticas</strong> (50/60 Hz y armónicos, variadores, contactores)</li>
+    <li><strong>Acoples mecánicos</strong> (vibración, resonancias)</li>
+    <li><strong>Problemas de instalación</strong> (cableado, masas, blindajes)</li>
+  </ul>
+
+  <h4>Ejemplo simple</h4>
+
+  <p>
+    Si el fenómeno que te interesa medir cambia en el orden de <strong>0,2 unidades</strong>,
+    pero el ruido típico es del orden de <strong>0,15 unidades</strong>, entonces:
+    <strong>tu sistema no puede distinguir claramente esos cambios</strong>.
+    Aunque el ADC tenga “muchos bits”, los valores útiles quedan ocultos en el ruido.
+  </p>
+
+  <hr>
+
+  <h3>Deriva (drift)</h3>
+
+  <p>
+    La <strong>deriva</strong> es un cambio lento del valor medido con el tiempo,
+    aun cuando el fenómeno físico sea estable o no justifique esa variación.
+    Se manifiesta como un “corrimiento” progresivo del nivel base.
+  </p>
+
+  <h4>Causas frecuentes</h4>
+
+  <ul>
+    <li><strong>Deriva térmica</strong> (sensores y acondicionadores sensibles a temperatura)</li>
+    <li><strong>Estabilización inicial</strong> (minutos iniciales luego de energizar equipos)</li>
+    <li><strong>Variaciones de alimentación</strong> o referencia</li>
+    <li><strong>Envejecimiento</strong> de componentes o sensor</li>
+  </ul>
+
+  <h4>Por qué importa</h4>
+
+  <p>
+    La deriva puede distorsionar el análisis de tendencias, modificar valores máximos/mínimos,
+    falsear comparaciones entre ensayos y contaminar cálculos estadísticos.
+  </p>
+
+  <blockquote>
+    Una deriva pequeña puede ser tolerable en un análisis comparativo,
+    pero puede ser inaceptable para valores absolutos o decisiones críticas.
+  </blockquote>
+
+  <hr>
+
+  <h3>Offset (desplazamiento del cero)</h3>
+
+  <p>
+    El <strong>offset</strong> es un desplazamiento constante respecto del valor esperado (por ejemplo, cero).
+    A diferencia de la deriva, el offset es <strong>aproximadamente fijo</strong> durante el registro.
+  </p>
+
+  <h4>Ejemplos típicos</h4>
+
+  <ul>
+    <li>Una celda de carga marca <strong>0,8 kN</strong> con carga nula</li>
+    <li>Un sensor de desplazamiento marca <strong>0,12 mm</strong> sin movimiento</li>
+  </ul>
+
+  <h4>¿Cuándo es un problema?</h4>
+
+  <ul>
+    <li><strong>Offset estable y pequeño:</strong> suele ser corregible (y aceptable si se documenta)</li>
+    <li><strong>Offset grande:</strong> puede indicar mala puesta a cero o rango mal configurado</li>
+    <li><strong>Offset variable:</strong> ya no es offset: suele ser deriva o problema de referencia</li>
+  </ul>
+
+  <hr>
+
+  <h3>Cómo se evalúa en los análisis de DAQ Insights</h3>
+
+  <p>
+    En nuestros informes, la calidad de señal se evalúa con criterios técnicos como:
+  </p>
+
+  <ul>
+    <li><strong>Medición del ruido</strong> (estadística sobre regiones “estables” del registro)</li>
+    <li><strong>Estimación de SNR</strong> y comparación con el rango útil del fenómeno</li>
+    <li><strong>Detección de deriva</strong> (tendencias lentas en el nivel base)</li>
+    <li><strong>Detección de offset</strong> y su impacto sobre conclusiones</li>
+    <li><strong>Análisis espectral</strong> para identificar interferencias periódicas</li>
+  </ul>
+
+  <p>
+    Estas evaluaciones permiten determinar la <strong>resolución útil real</strong>,
+    establecer límites de validez y recomendar mejoras concretas.
+  </p>
+
+  <hr>
+
+  <h3>Relación con el objetivo del análisis</h3>
+
+  <p>
+    La tolerancia al ruido, deriva y offset depende del uso que se dará a los datos.
+    Por ejemplo:
+  </p>
+
+  <ul>
+    <li>
+      <strong>Análisis comparativo:</strong> puede tolerar un offset pequeño (si es constante)
+      y ruido moderado, siempre que sea consistente entre mediciones.
+    </li>
+    <li>
+      <strong>Valores absolutos / límites:</strong> requieren mayor SNR, mínima deriva y
+      offset correctamente controlado.
+    </li>
+    <li>
+      <strong>Análisis dinámicos:</strong> pueden ser muy sensibles al ruido y al filtrado aplicado.
+    </li>
+  </ul>
+
+  <p>
+    Por eso, el análisis de calidad de señal se interpreta siempre en función del
+    <strong>objetivo del análisis declarado</strong>.
+  </p>
+
+  <hr>
+
+  <h3>Conclusión</h3>
+
+  <p>
+    La calidad de señal define qué tan confiables y útiles son los datos adquiridos.
+    Evaluar SNR, deriva y offset permite detectar limitaciones reales del sistema de medición
+    y reducir riesgos antes de tomar decisiones técnicas.
+  </p>
+
+  <p>
+    Una buena medición no se define por “cuántos bits tiene el ADC”,
+    sino por cuánta información física útil puede extraerse realmente de los datos.
+  </p>
+
+  <div style="margin-top: 40px; margin-bottom: 40px;">
+    <a href="../index.html" class="btn">Volver</a>
+  </div>
+
+</main>
+
+</body>
+</html>
