@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resolución efectiva y cuantización – DAQ Insights</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<main class="container narrow">
+
+  <h1>Resolución efectiva y cuantización</h1>
+  <h2>Qué significan y por qué importan en una medición real</h2>
+
+  <p>
+    En los sistemas de adquisición de datos es habitual encontrar especificaciones como
+    “ADC de 16 bits” o “24 bits de resolución”.
+    Sin embargo, en la práctica, <strong>la resolución nominal no siempre coincide con la resolución realmente utilizable</strong>.
+  </p>
+
+  <p>
+    En <strong>DAQ Insights</strong> se evalúa la <em>resolución efectiva</em> de la medición,
+    es decir, cuánta información útil contienen realmente los datos adquiridos.
+  </p>
+
+  <hr>
+
+  <h3>¿Qué es la cuantización?</h3>
+
+  <p>
+    La cuantización es el proceso mediante el cual una señal analógica continua
+    se convierte en valores digitales discretos.
+  </p>
+
+  <p>
+    Un convertidor analógico–digital (ADC) divide el rango de entrada en un número finito
+    de niveles. Cada muestra se aproxima al nivel más cercano disponible.
+  </p>
+
+  <p>
+    Esta aproximación introduce un error inevitable llamado
+    <strong>error de cuantización</strong>.
+  </p>
+
+  <hr>
+
+  <h3>Resolución nominal</h3>
+
+  <p>
+    La resolución nominal depende únicamente del número de bits del ADC.
+  </p>
+
+  <p>
+    Por ejemplo:
+  </p>
+
+  <ul>
+    <li>Un ADC de 16 bits tiene 65 536 niveles posibles</li>
+    <li>Un ADC de 24 bits tiene más de 16 millones de niveles</li>
+  </ul>
+
+  <p>
+    Esta cifra representa el <strong>mejor escenario teórico</strong>,
+    suponiendo un sistema ideal, sin ruido ni errores adicionales.
+  </p>
+
+  <hr>
+
+  <h3>¿Qué es la resolución efectiva?</h3>
+
+  <p>
+    La <strong>resolución efectiva</strong> representa el número de niveles
+    que realmente pueden distinguirse en una medición real,
+    considerando todos los factores que afectan la señal.
+  </p>
+
+  <p>
+    Entre estos factores se incluyen:
+  </p>
+
+  <ul>
+    <li>Ruido electrónico</li>
+    <li>Ruido del sensor</li>
+    <li>Interferencias externas</li>
+    <li>Configuración de ganancia y rango</li>
+    <li>Estabilidad de la referencia</li>
+  </ul>
+
+  <p>
+    En muchos casos, un sistema con ADC de 16 bits puede ofrecer
+    una resolución efectiva equivalente a 12 o 13 bits.
+  </p>
+
+  <hr>
+
+  <h3>Ejemplo ilustrativo</h3>
+
+  <p>
+    Supongamos una medición de fuerza en un rango de 0 a 100 kN,
+    utilizando un ADC de 16 bits.
+  </p>
+
+  <ul>
+    <li>Resolución teórica: ≈ 0,0015 kN por bit</li>
+    <li>Ruido medido en la señal: ±0,05 kN</li>
+  </ul>
+
+  <p>
+    En este caso, aunque el ADC tenga 16 bits,
+    <strong>los bits menos significativos quedan ocultos por el ruido</strong>.
+  </p>
+
+  <p>
+    La resolución efectiva está determinada por el nivel de ruido,
+    no por la cantidad de bits del convertidor.
+  </p>
+
+  <hr>
+
+  <h3>Por qué esto es importante</h3>
+
+  <p>
+    La resolución efectiva condiciona directamente:
+  </p>
+
+  <ul>
+    <li>La capacidad de detectar cambios pequeños</li>
+    <li>La repetibilidad de los resultados</li>
+    <li>La confiabilidad de valores absolutos</li>
+    <li>La validez de análisis estadísticos</li>
+  </ul>
+
+  <p>
+    Dos sistemas con el mismo ADC pueden producir datos
+    de calidad muy diferente dependiendo de su implementación.
+  </p>
+
+  <hr>
+
+  <h3>Cómo se evalúa en los análisis</h3>
+
+  <p>
+    En los informes de <strong>DAQ Insights</strong>,
+    la resolución efectiva se evalúa mediante:
+  </p>
+
+  <ul>
+    <li>Análisis estadístico del ruido</li>
+    <li>Observación de escalonamientos (efecto “escalera”)</li>
+    <li>Comparación entre variabilidad de la señal y tamaño del LSB</li>
+    <li>Consistencia de los datos frente a cambios pequeños del fenómeno físico</li>
+  </ul>
+
+  <p>
+    Esto permite determinar cuánta información útil contienen realmente los datos.
+  </p>
+
+  <hr>
+
+  <h3>Relación con el objetivo del análisis
+
+    <p>
+    La resolución efectiva necesaria depende del uso que se dará a los datos.
+  </p>
+
+  <ul>
+    <li>
+      Para análisis comparativos o de tendencia,
+      una resolución moderada puede ser suficiente.
+    </li>
+    <li>
+      Para determinación de valores absolutos o certificaciones,
+      la resolución efectiva debe ser significativamente mayor.
+    </li>
+  </ul>
+
+  <p>
+    Por este motivo, la evaluación de la resolución efectiva
+    siempre se realiza en función del <strong>objetivo del análisis declarado</strong>.
+  </p>
+
+  <hr>
+
+  <h3>Conclusión</h3>
+
+  <p>
+    La cantidad de bits de un ADC no garantiza por sí sola la calidad de una medición.
+    Lo relevante es la <strong>resolución efectiva</strong>,
+    es decir, cuánta información física útil puede extraerse realmente de los datos.
+  </p>
+
+  <p>
+    Evaluar este aspecto permite establecer límites claros
+    sobre lo que puede y no puede concluirse a partir de una medición.
+  </p>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consistencia Física Inferida – DAQ Insights</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<main class="container narrow">
+  <div style="margin-bottom: 24px;">
+    <a href="../index.html" class="btn btn--sm btn--ghost">← Volver al inicio</a>
+  </div>
+
+  <h1>Consistencia física inferida</h1>
+  <h2>Qué es, para qué sirve y qué no es</h2>
+
+  <p>
+    En los análisis realizados por <strong>DAQ Insights</strong>, el concepto de
+    <em>consistencia física inferida</em> se utiliza para evaluar si los datos adquiridos
+    presentan un comportamiento coherente con la física del sistema medido,
+    aun cuando no se haya realizado una inspección directa de la instalación.
+  </p>
+
+  <p>
+    Este análisis no reemplaza una auditoría presencial ni una verificación física,
+    pero permite detectar <strong>indicios técnicos relevantes</strong> a partir del
+    comportamiento de las señales registradas.
+  </p>
+
+  <hr>
+
+  <h3>¿Qué significa “inferida”?</h3>
+
+  <p>
+    El término <em>inferida</em> indica que las conclusiones se basan en
+    <strong>evidencias observables en los datos</strong>, no en una inspección visual del sistema.
+  </p>
+
+  <p>
+    La física siempre deja huellas en las señales medidas.
+    Del mismo modo, muchos problemas físicos dejan patrones característicos
+    que pueden identificarse mediante análisis matemático y estadístico.
+  </p>
+
+  <hr>
+
+  <h3>¿Por qué es importante este análisis?</h3>
+
+  <p>
+    En muchos sistemas de adquisición de datos, los esquemas, planos o descripciones
+    no reflejan completamente lo que ocurre durante una medición real.
+  </p>
+
+  <p>
+    La consistencia física inferida permite:
+  </p>
+
+  <ul>
+    <li>Detectar comportamientos no coherentes con el fenómeno esperado</li>
+    <li>Identificar posibles problemas que no son evidentes a simple vista</li>
+    <li>Establecer límites claros sobre la validez de los datos</li>
+    <li>Reducir el riesgo de decisiones basadas en mediciones engañosas</li>
+  </ul>
+
+  <hr>
+
+  <h3>Ejemplos de indicios analizados</h3>
+
+  <h4>Acoplamientos electromagnéticos</h4>
+  <p>
+    Presencia de componentes periódicas en el espectro (por ejemplo 50/60 Hz y armónicos),
+    ruido correlacionado entre canales no relacionados o patrones repetitivos
+    no asociados al fenómeno físico.
+  </p>
+
+  <p>
+    <strong>Inferencia típica:</strong>
+    comportamiento compatible con interferencias electromagnéticas externas.
+  </p>
+
+  <h4>Problemas de referencia o bucles de masa</h4>
+  <p>
+    Derivas lentas de offset, variaciones comunes a varios canales
+    o ruido de baja frecuencia compartido.
+  </p>
+
+  <p>
+    <strong>Inferencia típica:</strong>
+    posible inestabilidad en la referencia de medición o bucles de masa.
+  </p>
+
+  <h4>Desajuste entre sensor y acondicionador</h4>
+  <p>
+    Saturaciones tempranas, baja resolución efectiva o relación señal/ruido deficiente.
+  </p>
+
+  <p>
+    <strong>Inferencia típica:</strong>
+    configuración inadecuada del rango del sensor o del sistema de adquisición.
+  </p>
+
+  <h4>Efectos mecánicos no deseados</h4>
+  <p>
+    Histéresis excesiva, no linealidades abruptas o diferencias marcadas entre carga y descarga.
+  </p>
+
+  <p>
+    <strong>Inferencia típica:</strong>
+    comportamiento compatible con juegos mecánicos, fricción o montaje no ideal.
+  </p>
+
+  <h4>Problemas de sincronización</h4>
+  <p>
+    Desfasajes variables entre canales o eventos físicos que no coinciden temporalmente.
+  </p>
+
+  <p>
+    <strong>Inferencia típica:</strong>
+    falta de sincronización efectiva entre canales o fuentes de adquisición.
+  </p>
+
+  <h4>Sobre-procesamiento de los datos</h4>
+  <p>
+    Señales excesivamente suavizadas, pérdida de picos esperables o espectros artificialmente limpios.
+  </p>
+
+  <p>
+    <strong>Inferencia típica:</strong>
+    el procesamiento aplicado podría estar eliminando información física relevante.
+  </p>
+
+  <hr>
+
+  <h3>Qué NO es la consistencia física inferida</h3>
+
+  <ul>
+    <li>No es una auditoría presencial</li>
+    <li>No es una certificación de instalación</li>
+    <li>No es un diagnóstico definitivo del hardware</li>
+    <li>No reemplaza una inspección in-situ cuando esta es necesaria</li>
+  </ul>
+
+  <hr>
+
+  <h3>Cómo se expresa en los informes</h3>
+
+  <p>
+    Las conclusiones de esta sección se formulan siempre en términos
+    <strong>probabilísticos y condicionales</strong>, por ejemplo:
+  </p>
+
+  <blockquote>
+    “El comportamiento observado en los datos es consistente con posibles
+    interferencias electromagnéticas externas.”
+  </blockquote>
+
+  <p>
+    Este enfoque garantiza rigor técnico, honestidad profesional
+    y conclusiones defendibles.
+  </p>
+
+  <hr>
+
+  <h3>Conclusión</h3>
+
+  <p>
+    La consistencia física inferida es una herramienta poderosa para
+    identificar riesgos y limitaciones en sistemas de medición,
+    especialmente cuando no es posible realizar inspecciones directas.
+  </p>
+
+  <p>
+    Su objetivo no es reemplazar auditorías físicas,
+    sino aportar <strong>criterio ingenieril basado en evidencias</strong>
+    que ayude a tomar decisiones mejor informadas.
+  </p>
+
+</main>
+
+</body>
+</html>

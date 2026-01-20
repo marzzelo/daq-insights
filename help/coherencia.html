@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coherencia temporal y multicanal – DAQ Insights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+    <main class="container narrow">
+        <div style="margin-bottom: 24px;">
+            <a href="../index.html" class="btn btn--sm btn--ghost">← Volver al inicio</a>
+        </div>
+
+        <h1>Coherencia temporal y multicanal</h1>
+        <h2>Por qué el “cuándo” es tan importante como el “cuánto”</h2>
+
+        <p>
+            En sistemas de adquisición de datos con múltiples canales,
+            no solo importa el valor medido en cada señal,
+            sino también <strong>cuándo</strong> se midió.
+        </p>
+
+        <p>
+            La <em>coherencia temporal y multicanal</em> evalúa si las señales registradas
+            están correctamente alineadas en el tiempo y si representan
+            el mismo evento físico de manera consistente.
+        </p>
+
+        <hr>
+
+        <h3>¿Qué se entiende por coherencia temporal?</h3>
+
+        <p>
+            La coherencia temporal se refiere a la correcta relación temporal
+            entre muestras de una misma señal o entre señales distintas.
+        </p>
+
+        <p>
+            En términos simples:
+        </p>
+
+        <ul>
+            <li>¿Los eventos ocurren cuando deberían ocurrir?</li>
+            <li>¿Las señales reaccionan de forma simultánea al mismo fenómeno?</li>
+        </ul>
+
+        <p>
+            Una falta de coherencia temporal puede invalidar conclusiones,
+            aun cuando cada señal, analizada de forma aislada, parezca correcta.
+        </p>
+
+        <hr>
+
+        <h3>¿Qué es la coherencia multicanal?</h3>
+
+        <p>
+            La coherencia multicanal evalúa si múltiples canales de medición
+            describen de forma consistente un mismo fenómeno físico.
+        </p>
+
+        <p>
+            Por ejemplo:
+        </p>
+
+        <ul>
+            <li>Fuerza y desplazamiento durante un ensayo mecánico</li>
+            <li>Presión y caudal en un sistema hidráulico</li>
+            <li>Señales redundantes de un mismo tipo de sensor</li>
+        </ul>
+
+        <p>
+            Si las relaciones esperadas entre estas señales no se cumplen,
+            existe una incoherencia multicanal.
+        </p>
+
+        <hr>
+
+        <h3>Problemas frecuentes de coherencia temporal</h3>
+
+        <ul>
+            <li>Desfasajes constantes entre canales</li>
+            <li>Desfasajes variables a lo largo del tiempo</li>
+            <li>Diferentes retardos de filtrado</li>
+            <li>Errores de timestamp</li>
+            <li>Buffers o procesos asincrónicos</li>
+        </ul>
+
+        <p>
+            Estos problemas suelen pasar inadvertidos
+            si las señales se analizan de forma independiente.
+        </p>
+
+        <hr>
+
+        <h3>Problemas frecuentes de coherencia multicanal</h3>
+
+        <ul>
+            <li>Eventos físicos que no coinciden entre señales relacionadas</li>
+            <li>Relaciones causa–efecto físicamente imposibles</li>
+            <li>Inconsistencias entre sensores redundantes</li>
+            <li>Diferencias de escala o ganancia no documentadas</li>
+        </ul>
+
+        <p>
+            Estos comportamientos son indicios de errores en la adquisición,
+            el procesamiento o la configuración del sistema.
+        </p>
+
+        <hr>
+
+        <h3>Ejemplo ilustrativo</h3>
+
+        <p>
+            En un ensayo de carga estructural,
+            la fuerza aplicada y el desplazamiento medido
+            deberían evolucionar de forma sincronizada.
+        </p>
+
+        <p>
+            Si el desplazamiento comienza a variar antes de que se registre la fuerza,
+            o con un retardo variable, los datos pueden resultar físicamente incoherentes,
+            aun cuando ambos canales presenten señales “limpias”.
+        </p>
+
+        <hr>
+
+        <h3>Por qué esto es crítico para el análisis</h3>
+
+        <p>
+            La falta de coherencia temporal o multicanal puede:
+        </p>
+
+        <ul>
+            <li>Distorsionar análisis de causa–efecto</li>
+            <li>Invalidar correlaciones entre variables</li>
+            <li>Generar conclusiones físicamente imposibles</li>
+            <li>Ocultar errores graves del sistema de adquisición</li>
+        </ul>
+
+        <p>
+            Por este motivo, la coherencia temporal
+            es un aspecto central en los análisis de <strong>DAQ Insights</strong>.
+        </p>
+
+        <hr>
+
+        <h3>Cómo se evalúa en los análisis</h3>
+
+        <p>
+            La coherencia temporal y multicanal se evalúa mediante:
+        </p>
+
+        <ul>
+            <li>Comparación de eventos característicos entre señales</li>
+            <li>Análisis de correlación y retardo</li>
+            <li>Revisión de sincronización de adquisición</li>
+            <li>Evaluación del impacto del filtrado en el dominio temporal</li>
+        </ul>
+
+        <p>
+            Este análisis permite detectar problemas
+            que no son visibles en gráficos individuales.
+        </p>
+
+        <hr>
+
+        <h3>Relación con el objetivo del análisis</h3>
+
+        <p>
+            La exigencia de coherencia temporal depende del uso de los datos.
+        </p>
+
+        <ul>
+            <li>
+                Para análisis exploratorios,
+                pequeños desfasajes pueden ser tolerables.
+            </li>
+            <li>
+                Para análisis dinámicos o decisiones críticas,
+                incluso desfasajes pequeños pueden ser inaceptables.
+            </li>
+        </ul>
+
+        <p>
+            Por este motivo, la coherencia temporal siempre se evalúa
+            en función del <strong>objetivo del análisis declarado</strong>.
+        </p>
+
+        <hr>
+
+        <h3>Conclusión</h3>
+
+        <p>
+            La coherencia temporal y multicanal garantiza que los datos
+            representen correctamente la secuencia y relación de los eventos físicos.
+        </p>
+
+        <p>
+            Sin esta coherencia, los datos pueden ser matemáticamente correctos,
+            pero físicamente inconsistentes.
+        </p>
+
+        <p>
+            Evaluar este aspecto permite establecer
+            si las conclusiones obtenidas reflejan
+            el comportamiento real del sistema analizado.
+        </p>
+
+    </main>
+
+</body>
+
+</html>

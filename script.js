@@ -37,8 +37,6 @@
 `Descripción del caso:\n${message || '(sin descripción)'}\n\n`+
 `Checklist (si aplica):\n- Objetivo del análisis\n- Variables y unidades\n- Frecuencia de muestreo / canales\n- Archivos de datos (o muestra)\n- Descripción del setup\n\nSaludos.`
       );
-
-      // TODO: Reemplazar por tu email real
       const to = 'zedlavolecram@gmail.com';
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     });
