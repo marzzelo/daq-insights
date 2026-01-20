@@ -1,0 +1,11 @@
+# System files
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Node (if added later)
+node_modules/
+.npm/
+.env

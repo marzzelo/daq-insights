@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Servicios profesionales de análisis de datos de ensayo, confiabilidad de mediciones y post-procesamiento para adquisición de datos industrial." />
+  <title>DAQ Insight | Confiabilidad y Post-procesamiento de Datos de Ensayo</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DAQ Insight | Confiabilidad y Post-procesamiento de Datos de Ensayo" />
+  <meta property="og:description" content="Servicios profesionales de análisis de datos de ensayo, confiabilidad de mediciones y post-procesamiento para adquisición de datos industrial." />
+  <meta property="og:image" content="assets/logo.svg" />
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="DAQ Insight" class="brand__logo" />
+        <div class="brand__text">
+          <div class="brand__name">DAQ Insight</div>
+          <div class="brand__tag">Confiabilidad de mediciones • Datos de ensayo • Post‑pro</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Principal">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__toggleBars" aria-hidden="true"></span>
+          <span class="sr">Menú</span>
+        </button>
+        <div id="navMenu" class="nav__menu">
+          <a href="#servicio">Servicio</a>
+          <a href="#paquetes">Paquetes</a>
+          <a href="#proceso">Proceso</a>
+          <a href="#entregables">Entregables</a>
+          <a href="#precios">Precios</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn btn--sm" href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="pill">Servicio técnico productizado • 100% remoto • Enfoque ingenieril</p>
+          <h1>Confiabilidad de datos de ensayo y post‑procesamiento <span class="grad">con rigor metódico</span>.</h1>
+          <p class="lead">
+            Si tus decisiones dependen de señales (fuerza, desplazamiento, presión, vibración, etc.), primero hay que responder una pregunta simple:
+            <strong>¿estamos midiendo bien?</strong>
+            <br />
+            Aquí no vendemos “magia” ni sellos: vendemos <strong>criterio técnico</strong>, reportes claros y un flujo de trabajo reproducible.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn" href="#contacto">Pedir cotización</a>
+            <a class="btn btn--ghost" href="#paquetes">Ver paquetes</a>
+          </div>
+
+          <div class="hero__trust">
+            <div class="trust">
+              <div class="trust__kpi">Alta</div>
+              <div class="trust__txt">Precisión de alcance<br><span class="muted">(sin “ya que estás”)</span></div>
+            </div>
+            <div class="trust">
+              <div class="trust__kpi">0</div>
+              <div class="trust__txt">Visitas a planta<br><span class="muted">(por defecto)</span></div>
+            </div>
+            <div class="trust">
+              <div class="trust__kpi">PDF</div>
+              <div class="trust__txt">Informe defendible<br><span class="muted">(decisión‑ready)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__panel" aria-label="Resumen de la oferta">
+          <div class="panel">
+            <div class="panel__top">
+              <div>
+                <div class="panel__title">Evaluación Integral</div>
+                <div class="panel__subtitle">Confiabilidad + Post‑pro (opcional)</div>
+              </div>
+              <span class="badge">Etapas</span>
+            </div>
+
+            <ol class="steps">
+              <li>
+                <div class="steps__n">1</div>
+                <div>
+                  <div class="steps__t">Análisis de Confiabilidad</div>
+                  <div class="steps__d">Señal, sincronización, saturación, filtros, configuración DAQ, coherencia física inferida.</div>
+                </div>
+              </li>
+              <li>
+                <div class="steps__n">2</div>
+                <div>
+                  <div class="steps__t">Post‑procesamiento Técnico</div>
+                  <div class="steps__d">Limpieza, atípicos, estadísticas, espectro, correcciones, resampling. Se generan derivados; no se altera el original.</div>
+                </div>
+              </li>
+            </ol>
+
+            <div class="panel__note">
+              <strong>Regla de oro:</strong> primero se evalúa la confiabilidad. Si los datos no son aptos, se recomienda qué corregir antes de procesar.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__bg" aria-hidden="true"></div>
+    </section>
+
+    <section id="servicio" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Qué ofrecemos (sin prometer lo imposible)</h2>
+          <p>
+            Servicios para equipos de ingeniería, ensayos y mantenimiento que necesitan confiar en sus mediciones.
+            <span class="muted">Sin inspección in‑situ por defecto; el foco está en datos y configuración.</span>
+          </p>
+        </div>
+
+        <div class="grid3">
+          <article class="card">
+            <h3>Etapa 1 — Confiabilidad de datos</h3>
+            <p>
+              Evaluamos si tus datos son técnicamente confiables para el objetivo declarado.
+              Detectamos errores típicos (y no tan típicos): aliasing, saturación encubierta, offsets, drift, filtros mal aplicados,
+              inconsistencias de escalado, problemas de sincronización, etc.
+            </p>
+            <ul class="bullets">
+              <li>Calidad de señal, SNR, deriva, offset</li>
+              <li>Resolución efectiva y cuantización</li>
+              <li>Coherencia temporal y multicanal</li>
+              <li>Consistencia física inferida (indicios)</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Etapa 2 — Post‑procesamiento técnico (opcional)</h3>
+            <p>
+              Si corresponde, aplicamos procesamiento matemático/estadístico para convertir datos en información utilizable.
+              <strong>Los datos originales no se modifican</strong>: entregamos archivos derivados y documentación reproducible.
+            </p>
+            <ul class="bullets">
+              <li>Limpieza y remoción de atípicos (criterios definidos)</li>
+              <li>Media, mediana, std, RMS, percentiles</li>
+              <li>FFT / PSD y análisis espectral</li>
+              <li>Correcciones (ganancia/offset) y resampling</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Enfoque productizado</h3>
+            <p>
+              Alcance claro, entregables definidos y flujo reproducible.
+              Esto reduce fricción, evita improvisación y permite planificar.
+            </p>
+            <ul class="bullets">
+              <li>100% remoto (por defecto)</li>
+              <li>Informe técnico en PDF</li>
+              <li>Plazos y recargos explícitos</li>
+              <li>Trabajo por complejidad, no por “presencia”</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div>
+            <h3>Qué NO es este servicio</h3>
+            <p class="muted">
+              No es calibración certificada (INTI/ISO), no es auditoría de instalación en planta, no es “ajustar datos para que den lindo”.
+              Es análisis técnico defendible de señales y configuración, con post‑pro opcional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="paquetes" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>Paquetes</h2>
+          <p>Contratación por etapas, con paquetes claros. Etapa 2 se cotiza y ejecuta solo si corresponde.</p>
+        </div>
+
+        <div class="pricing">
+          <article class="price">
+            <div class="price__top">
+              <h3>Solo Confiabilidad</h3>
+              <p class="muted">Etapa 1</p>
+            </div>
+            <div class="price__body">
+              <ul>
+                <li>Evaluación de señal y coherencia</li>
+                <li>Revisión de configuración DAQ</li>
+                <li>Hallazgos priorizados</li>
+                <li>Informe técnico (PDF)</li>
+              </ul>
+            </div>
+            <div class="price__cta">
+              <a class="btn btn--ghost" href="#precios">Ver rangos</a>
+            </div>
+          </article>
+
+          <article class="price price--featured">
+            <div class="price__top">
+              <h3>Integral</h3>
+              <p class="muted">Etapa 1 + Etapa 2</p>
+            </div>
+            <div class="price__body">
+              <ul>
+                <li>Todo lo de Confiabilidad</li>
+                <li>Post‑procesamiento modular</li>
+                <li>Archivos derivados y reproducibles</li>
+                <li>Informe de post‑pro adicional</li>
+              </ul>
+            </div>
+            <div class="price__cta">
+              <a class="btn" href="#contacto">Pedir cotización</a>
+            </div>
+          </article>
+
+          <article class="price">
+            <div class="price__top">
+              <h3>Diagnóstico exprés</h3>
+              <p class="muted">Pre‑filtro</p>
+            </div>
+            <div class="price__body">
+              <ul>
+                <li>Revisión rápida de dataset</li>
+                <li>Señales críticas y banderas rojas</li>
+                <li>Recomendación de camino</li>
+                <li>Sin informe extendido</li>
+              </ul>
+            </div>
+            <div class="price__cta">
+              <a class="btn btn--ghost" href="#contacto">Consultar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Proceso de trabajo</h2>
+          <p>Diseñado para ser predecible, reproducible y de baja fricción.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="titem">
+            <div class="tbadge">1</div>
+            <div>
+              <h3>Ingreso y pre‑filtro</h3>
+              <p class="muted">Formulario + archivos. Si falta información, se solicita antes de iniciar.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="tbadge">2</div>
+            <div>
+              <h3>Viabilidad y complejidad</h3>
+              <p class="muted">Clasificación por nivel (1/2/3). Se define alcance final, plazo y costo.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="tbadge">3</div>
+            <div>
+              <h3>Análisis estructurado</h3>
+              <p class="muted">Bloques autocontenidos: exploratorio → profundo → síntesis.</p>
+            </div>
+          </div>
+          <div class="titem">
+            <div class="tbadge">4</div>
+            <div>
+              <h3>Entregables</h3>
+              <p class="muted">Informe PDF + (si aplica) archivos derivados y reporte de post‑pro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="entregables" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>Entregables</h2>
+          <p>Documentación clara para ingeniería, mantenimiento o gerencia.</p>
+        </div>
+
+        <div class="grid2">
+          <article class="card">
+            <h3>Informe de Confiabilidad (PDF)</h3>
+            <ul class="bullets">
+              <li>Resumen ejecutivo (1 página)</li>
+              <li>Alcance y limitaciones (blindaje)</li>
+              <li>Análisis técnico (señal, sincronía, filtros, etc.)</li>
+              <li>Hallazgos críticos / moderados / menores</li>
+              <li>Evaluación: Alta / Media / Baja</li>
+              <li>Recomendaciones priorizadas</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Informe de Post‑procesamiento (opcional)</h3>
+            <ul class="bullets">
+              <li>Módulos aplicados y criterios</li>
+              <li>Estadística descriptiva y espectral</li>
+              <li>Parámetros de filtrado y justificación</li>
+              <li>Archivos derivados + trazabilidad</li>
+              <li>Notas de reproducibilidad</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Precios (orientativos)</h2>
+          <p>Se cotiza por complejidad. Los rangos finales se confirman luego del pre‑filtro.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="card">
+            <h3>Nivel 1 — Simple</h3>
+            <p class="priceTag">USD 300–450</p>
+            <ul class="bullets">
+              <li>1–4 canales</li>
+              <li>Objetivo claro</li>
+              <li>Informe estándar</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Nivel 2 — Intermedio</h3>
+            <p class="priceTag">USD 600–850</p>
+            <ul class="bullets">
+              <li>5–16 canales</li>
+              <li>Sincronización / filtros</li>
+              <li>Informe con recomendaciones priorizadas</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Nivel 3 — Complejo</h3>
+            <p class="priceTag">USD 1.100–1.600</p>
+            <ul class="bullets">
+              <li>&gt;16 canales</li>
+              <li>Ruido severo / datos dudosos</li>
+              <li>Informe extendido + evaluación de riesgos</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid2" style="margin-top:16px">
+          <div class="note">
+            <h3>Recargos</h3>
+            <ul class="bullets">
+              <li>Urgencia &lt; 5 días hábiles: +30%</li>
+              <li>Urgencia &lt; 3 días hábiles: +50%</li>
+              <li>Datos desordenados / incompletos: +20% o rechazo</li>
+            </ul>
+          </div>
+          <div class="note">
+            <h3>Post‑procesamiento (módulos)</h3>
+            <ul class="bullets">
+              <li>Limpieza + estadística básica: USD 200–300</li>
+              <li>Filtrado + espectro (FFT/PSD): USD 300–450</li>
+              <li>Correcciones + resampling: USD 250–400</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas cortas, sin humo.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>¿Esto reemplaza una calibración certificada (INTI/ISO)?</summary>
+            <p>No. Este servicio evalúa confiabilidad de datos y configuración. Si necesitás trazabilidad metrológica formal, se recomienda un laboratorio acreditado.</p>
+          </details>
+          <details>
+            <summary>¿Se necesita una visita a planta?</summary>
+            <p>Por defecto, no. El servicio se diseña remoto. Si luego se concluye que hace falta inspección in‑situ, se cotiza por separado.</p>
+          </details>
+          <details>
+            <summary>¿“Arreglan” los datos para que den el resultado esperado?</summary>
+            <p>No. Se detectan problemas y se procesan señales bajo criterios explícitos. Los datos originales no se modifican; se entregan derivados trazables.</p>
+          </details>
+          <details>
+            <summary>¿Qué formato de datos aceptan?</summary>
+            <p>CSV, TDMS, MAT y formatos similares. Si tenés un formato propio, se evalúa viabilidad.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Contacto</h2>
+          <p>Para cotizar, pedimos información mínima para evitar idas y vueltas.</p>
+        </div>
+
+        <div class="contact">
+          <div class="card">
+            <h3>Checklist para cotización</h3>
+            <ul class="bullets">
+              <li>Objetivo del análisis (qué decisión depende)</li>
+              <li>Variables medidas + unidades</li>
+              <li>Frecuencia de muestreo y cantidad de canales</li>
+              <li>Archivos de datos (muestra si pesan mucho)</li>
+              <li>Descripción del setup (texto o esquema)</li>
+            </ul>
+          </div>
+
+          <form class="form card" id="leadForm">
+            <div class="row2">
+              <label>
+                Nombre
+                <input name="name" autocomplete="name" required />
+              </label>
+              <label>
+                Empresa
+                <input name="company" autocomplete="organization" />
+              </label>
+            </div>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Breve descripción del caso
+              <textarea name="message" rows="5" placeholder="Ej.: Ensayo de carga. 8 canales (4 celdas + 4 desplazamientos). Dudas de saturación y filtrado. Necesitamos decidir si los picos son reales."></textarea>
+            </label>
+            <div class="row2">
+              <label>
+                Plazo deseado
+                <select name="deadline">
+                  <option value="">Sin urgencia</option>
+                  <option>5–10 días hábiles</option>
+                  <option>&lt; 5 días hábiles (urgente)</option>
+                  <option>&lt; 3 días hábiles (muy urgente)</option>
+                </select>
+              </label>
+              <label>
+                Etapa
+                <select name="stage">
+                  <option>Confiabilidad (Etapa 1)</option>
+                  <option>Integral (Etapa 1 + Etapa 2)</option>
+                  <option>No sé (recomendar)</option>
+                </select>
+              </label>
+            </div>
+            <button class="btn" type="submit">Generar email</button>
+            <p class="muted" style="margin-top:10px">Este formulario genera un email prellenado (no almacena datos en el sitio).</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div>
+          <div class="brand brand--footer">
+            <img src="assets/logo.svg" alt="DAQ Insight" class="brand__logo" />
+            <div class="brand__text">
+              <div class="brand__name">DAQ Insight</div>
+              <div class="brand__tag">Servicios remotos para confiabilidad de mediciones</div>
+            </div>
+          </div>
+          <p class="muted">© <span id="year"></span> DAQ Insight. Todos los derechos reservados.</p>
+          <p class="muted" style="margin-top: 12px; font-size: 0.9em;">
+            <strong>Ing. Electrónico Marcelo Alejandro Valdez</strong><br>
+            Córdoba Capital, Argentina
+          </p>
+        </div>
+        <div class="footer__links">
+          <a href="legal.html">Alcance y términos</a>
+          <a href="privacy.html">Privacidad</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
