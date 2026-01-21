@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correcciones y Resampling – DAQ Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\styles.css">
+</head>
+
+<body>
+    <main class="container narrow">
+
+        <h1>Correcciones y Resampling</h1>
+        <h2>Ajustes sistemáticos y manipulación de base de tiempo</h2>
+
+        <p>
+            A veces los datos crudos contienen errores sistemáticos conocidos (como un offset en un sensor de fuerza
+            descargado)
+            o tienen tasas de muestreo inconvenientes. Esta etapa se encarga de acondicionar los datos para su uso
+            final.
+        </p>
+
+        <hr>
+
+        <h3>Correcciones Lineales (Ganancia y Offset)</h3>
+
+        <p>
+            Aplicamos correcciones matemáticas de la forma <code>y = mx + b</code> cuando disponemos de información de
+            calibración externa
+            o evidencia física clara.
+        </p>
+
+        <ul>
+            <li><strong>Corrección de Offset (Tara por software):</strong> Si sabemos que un sensor de fuerza debía
+                marcar 0 kg al inicio
+                del ensayo pero marcó 2.5 kg, restamos ese bias sistemático.</li>
+            <li><strong>Corrección de Ganancia:</strong> Ajuste de factor de escala basado en calibraciones in-situ
+                (shunt cal) o de laboratorio.</li>
+            <li><strong>Compensación de Deriva (Drift):</strong> Eliminación de tendencias lineales lentas debidas a
+                temperatura,
+                siempre que se confirme que no son parte del fenómeno físico.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Resampling (Remuestreo)</h3>
+
+        <p>
+            El resampling implica cambiar la frecuencia de muestreo de la señal (ej. pasar de 10 kS/s a 100 S/s).
+        </p>
+
+        <h4>¿Por qué resamplear?</h4>
+        <ul>
+            <li><strong>Reducción de tamaño:</strong> Para archivar o graficar datos en periodos largos donde la alta
+                frecuencia no es relevante.</li>
+            <li><strong>Sincronización:</strong> Unificar señales adquiridas por distintos equipos con relojes
+                diferentes.</li>
+        </ul>
+
+        <h4>El peligro del Aliasing</h4>
+        <p>
+            No basta con "tomar 1 de cada 100 puntos". Eso introduce <em>aliasing</em>, haciendo que el ruido de alta
+            frecuencia aparezca
+            falsamente como señales de baja frecuencia.
+        </p>
+        <blockquote>
+            Nosotros utilizamos algoritmos de <strong>decimación polifásica</strong> con filtrado anti-alias previo
+            automático.
+            Esto garantiza que la señal reducida sea una representación fiel y limpia del contenido de baja frecuencia
+            original.
+        </blockquote>
+
+        <div style="margin-top: 40px; margin-bottom: 40px;">
+            <a href="..\index.html" class="btn">Volver</a>
+        </div>
+
+    </main>
+</body>
+
+</html>

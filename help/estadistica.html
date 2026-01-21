@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadística Descriptiva – DAQ Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\styles.css">
+</head>
+
+<body>
+    <main class="container narrow">
+
+        <h1>Estadística Descriptiva</h1>
+        <h2>Resumiendo millones de puntos en información útil</h2>
+
+        <p>
+            Un ensayo de 10 minutos a 1 kHz genera 600,000 puntos de datos por canal. Para la toma de decisiones, es
+            imposible
+            analizar "punto por punto". Necesitamos métricas que describan el comportamiento de la señal de forma
+            compacta y robusta.
+        </p>
+
+        <hr>
+
+        <h3>Métricas principales y su significado físico</h3>
+
+        <p>Seleccionamos los estadísticos según la naturaleza de la señal:</p>
+
+        <h4>1. Tendencia central (Valores estáticos)</h4>
+        <ul>
+            <li><strong>Media (Promedio):</strong> Representa la componente de continua (DC). Útil para presiones
+                estáticas, temperaturas o niveles.
+                <em>Sensible a atípicos extremos.</em>
+            </li>
+            <li><strong>Mediana:</strong> El valor central. Mucho más robusta frente a picos de ruido esporádicos.
+                Preferida para estimar offsets.</li>
+        </ul>
+
+        <h4>2. Dispersión y Energía (Dinámica/Ruido)</h4>
+        <ul>
+            <li><strong>Desviación Estándar (Std Dev):</strong> Cuantifica cuánto oscila la señal alrededor de su media.
+                En señales constantes, es un indicador directo del <strong>piso de ruido</strong>.</li>
+            <li><strong>RMS (Root Mean Square):</strong> Valor eficaz. Representa la energía total de la señal (DC +
+                AC). Crítico en vibraciones y señales eléctricas.</li>
+        </ul>
+
+        <h4>3. Eventos extremos</h4>
+        <ul>
+            <li><strong>Mínimo y Máximo:</strong> Muestran el rango absoluto. Útiles para detectar saturaciones, pero
+                poco representativos si hay ruido impulsivo.</li>
+            <li><strong>Percentiles (P99, P1, P95):</strong> Indican, por ejemplo, que "el 99% del tiempo la señal
+                estuvo por debajo de X valor".
+                Son la mejor herramienta para caracterizar picos reales descartando outliers estadísticos.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Ejemplo de aplicación</h3>
+
+        <p>
+            Al analizar la presión en una tubería:
+        </p>
+        <ul>
+            <li>La <strong>Media</strong> nos da la presión de operación.</li>
+            <li>La <strong>Std Dev</strong> nos dice qué tan turbulento es el flujo o cuánto ruido tiene el sensor.</li>
+            <li>El <strong>Percentil 99</strong> nos dice cuál fue el pico de presión máximo sostenido, descartando un
+                pico eléctrico falso de 1 milisegundo.</li>
+        </ul>
+
+        <div style="margin-top: 40px; margin-bottom: 40px;">
+            <a href="..\index.html" class="btn">Volver</a>
+        </div>
+
+    </main>
+</body>
+
+</html>

@@ -53,7 +53,15 @@
   </header>
 
   <main id="contenido">
-    <img src="assets/header02.png" alt="" class="header-banner" />
+    <div class="text-header">
+      <div class="container text-header__inner">
+        <img src="assets/isolated_logo.png" alt="Logo" class="text-header__logo" />
+        <div class="text-header__content">
+          <h2 class="text-header__title">Evaluación Técnica Integral de Datos de Ensayos</h2>
+          <p class="text-header__subtitle">Confiabilidad y Post-procesamiento avanzado</p>
+        </div>
+      </div>
+    </div>
     <section class="hero">
       <div class="container hero__grid">
         <div class="hero__copy">
@@ -188,10 +196,34 @@
               reproducible.
             </p>
             <ul class="bullets">
-              <li>Limpieza y remoción de atípicos (criterios definidos)</li>
-              <li>Media, mediana, std, RMS, percentiles</li>
-              <li>FFT / PSD y análisis espectral, filtrado gaussiano</li>
-              <li>Correcciones (ganancia/offset) y resampling</li>
+              <li><a href="help/limpieza.html">Limpieza y remoción de atípicos (criterios definidos) <span
+                    class="link-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg> </span></a></li>
+              <li><a href="help/estadistica.html">Media, mediana, std, RMS, percentiles <span class="link-badge"><svg
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg> </span></a></li>
+              <li><a href="help/espectro.html">FFT / PSD y análisis espectral, filtrado gaussiano <span
+                    class="link-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg> </span></a></li>
+              <li><a href="help/correcciones.html">Correcciones (ganancia/offset) y resampling <span
+                    class="link-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg> </span></a></li>
             </ul>
           </article>
 
@@ -467,7 +499,8 @@
           <div class="card">
             <h3>Checklist para cotización</h3>
             <ul class="bullets">
-              <li>Objetivo del análisis (qué decisión depende) <a href="objetivo.html" class="btn-help">Ayuda</a></li>
+              <li>Objetivo del análisis (qué decisión depende) <a href="help\objetivo.html" class="btn-help">Ayuda</a>
+              </li>
               <li>Variables medidas + unidades</li>
               <li>Frecuencia de muestreo y cantidad de canales</li>
               <li>Archivos de datos (muestra si pesan mucho)</li>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpieza y Remoción de Atípicos – DAQ Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\styles.css">
+</head>
+
+<body>
+    <main class="container narrow">
+
+        <h1>Limpieza de Datos y Atípicos</h1>
+        <h2>Criterios técnicos para descartar datos espurios</h2>
+
+        <p>
+            La limpieza de datos es el primer paso crítico del post-procesamiento. Su objetivo es separar la señal
+            física real
+            de artefactos generados por la cadena de medición (errores de sensor, transmisión o conversión).
+        </p>
+
+        <p>
+            <strong>Regla fundamental:</strong> No se trata de eliminar datos porque "se ven feos", sino porque son
+            <strong>técnicamente inválidos</strong>.
+        </p>
+
+        <hr>
+
+        <h3>¿Qué es un dato atípico (Outlier)?</h3>
+
+        <p>
+            Un <em>outlier</em> es un punto de datos que difiere drásticamente del comportamiento local de la señal.
+            En instrumentación industrial, suelen presentarse como:
+        </p>
+
+        <ul>
+            <li><strong>Spikes (Picos):</strong> Saltos instantáneos a valores inverosímiles, a menudo causados por
+                ruido eléctrico
+                inductivo o problemas de cableado.</li>
+            <li><strong>Dropouts:</strong> Caídas repentinas a cero o al fondo de escala, típicas en pérdidas de
+                conexión momentáneas.</li>
+            <li><strong>Saturación:</strong> "Recorte" de la señal en los límites del rango del sensor (clipping).</li>
+        </ul>
+
+        <hr>
+
+        <h3>Criterios de limpieza definidos</h3>
+
+        <p>
+            Para garantizar la reproducibilidad, la eliminación de atípicos no se hace "a ojo". Definimos criterios
+            matemáticos
+            y físicos:
+        </p>
+
+        <blockquote>
+            "Un dato se considera espurio si su tasa de variación excede la capacidad física del sistema medido."
+        </blockquote>
+
+        <h4>Métodos utilizados:</h4>
+        <ul>
+            <li><strong>Filtro de Hampel (Median Absolute Deviation):</strong> Robusto para detectar picos sin ser
+                afectado por ellos.</li>
+            <li><strong>Umbrales físicos:</strong> Definición de rangos mín/máx posibles por la física del fenómeno (ej.
+                presión no puede ser negativa en ciertos contextos).</li>
+            <li><strong>Consistencia temporal:</strong> Verificación de continuidad y derivadas lógicas.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Trazabilidad e Integridad</h3>
+
+        <p>
+            En nuestro flujo de trabajo, <strong>nunca borramos datos del archivo original</strong> (Raw Data).
+        </p>
+
+        <p>
+            La limpieza genera un nuevo conjunto de datos (Clean Data) documentando:
+        </p>
+        <ul>
+            <li>Qué criterio se usó.</li>
+            <li>Cuántos puntos fueron removidos o interpolados.</li>
+            <li>Porcentaje de afectación sobre el total.</li>
+        </ul>
+
+        <div style="margin-top: 40px; margin-bottom: 40px;">
+            <a href="..\index.html" class="btn">Volver</a>
+        </div>
+
+    </main>
+</body>
+
+</html>

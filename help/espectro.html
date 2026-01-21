@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Espectral y Filtrado – DAQ Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="..\styles.css">
+</head>
+
+<body>
+    <main class="container narrow">
+
+        <h1>Análisis Espectral y Filtrado</h1>
+        <h2>Entendiendo la frecuencia y separando componentes</h2>
+
+        <p>
+            Muchas veces, lo esencial de una señal no se ve en el dominio del tiempo (un gráfico de onda), sino en el
+            dominio
+            de la frecuencia. Aquí es donde entran las herramientas espectrales.
+        </p>
+
+        <hr>
+
+        <h3>FFT y PSD: Ver lo invisible</h3>
+
+        <p>
+            Utilizamos la <strong>Transformada Rápida de Fourier (FFT)</strong> y la <strong>Densidad Espectral de
+                Potencia (PSD)</strong>
+            para descomponer una señal compleja en sus frecuencias constitutivas.
+        </p>
+
+        <ul>
+            <li><strong>Identificación de Relevancia:</strong> ¿Esa oscilación es vibración mecánica del motor o ruido
+                eléctrico de 50 Hz?</li>
+            <li><strong>Resonancias:</strong> Detectar frecuencias naturales de estructuras.</li>
+            <li><strong>Diagnóstico de Ruido:</strong> El ruido blanco se ve plano; el ruido 1/f crece a bajas
+                frecuencias.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Filtrado Digital</h3>
+
+        <p>
+            Una vez identificado el contenido de interés y el ruido, aplicamos filtros digitales para mejorar la
+            relación señal-ruido (SNR)
+            o aislar fenómenos específicos.
+        </p>
+
+        <h4>Enfoque Gaussiano (Smoothing)</h4>
+        <p>
+            Utilizamos frecuentemente filtros de suavizado Gaussiano. A diferencia de un promedio móvil simple (boxcar),
+            el filtro gaussiano
+            ofrece una excelente respuesta en el dominio del tiempo <strong>sin introducir "ringing" (oscilaciones
+                artificiales)</strong> en los escalones abruptos.
+            Es ideal para ver tendencias subyacentes sin distorsionar la forma de los eventos transitorios.
+        </p>
+
+        <h4>Cuestión de Fase</h4>
+        <p>
+            Aplicamos filtrado <strong>"Zero-phase"</strong> (filtros hacia adelante y hacia atrás) siempre que es
+            posible.
+            Esto garantiza que los picos de la señal filtrada no se desplacen en el tiempo respecto a la original,
+            manteniendo la sincronización perfecta.
+        </p>
+
+        <blockquote>
+            "Un mal filtro puede hacer que un evento parezca ocurrir antes de su causa. Cuidamos rigurosamente la
+            causalidad y fase."
+        </blockquote>
+
+        <div style="margin-top: 40px; margin-bottom: 40px;">
+            <a href="..\index.html" class="btn">Volver</a>
+        </div>
+
+    </main>
+</body>
+
+</html>
