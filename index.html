@@ -45,6 +45,7 @@
           <a href="#proceso">Proceso</a>
           <a href="#entregables">Entregables</a>
           <a href="#precios">Precios</a>
+          <a href="cotizacion.html" style="color: var(--brand2); font-weight: 700;">Análisis IC‑DAQ</a>
           <a href="#faq">FAQ</a>
           <a class="btn btn--sm" href="#contacto">Contacto</a>
         </div>
@@ -402,36 +403,39 @@
     <section id="precios" class="section">
       <div class="container">
         <div class="section__head">
-          <h2>Precios (orientativos)</h2>
-          <p>Se cotiza por complejidad. Los rangos finales se confirman luego del pre‑filtro.</p>
+          <h2>Niveles de Complejidad</h2>
+          <p>La clasificación IC-DAQ determina el alcance y la profundidad del análisis técnico.</p>
         </div>
 
         <div class="grid3">
           <article class="card">
             <h3>Nivel 1 — Simple</h3>
-            <p class="priceTag">USD 300–450</p>
             <ul class="bullets">
-              <li>1–4 canales</li>
-              <li>Objetivo claro</li>
-              <li>Informe estándar</li>
+              <li>&lt; 1M registros / 1–2 datasets</li>
+              <li>Fenómeno cuasi-estático</li>
+              <li>Una única condición operacional</li>
+              <li>Totalmente scriptable</li>
+              <li>Exploratorio interno</li>
             </ul>
           </article>
           <article class="card">
             <h3>Nivel 2 — Intermedio</h3>
-            <p class="priceTag">USD 600–850</p>
             <ul class="bullets">
-              <li>5–16 canales</li>
-              <li>Sincronización / filtros</li>
-              <li>Informe con recomendaciones priorizadas</li>
+              <li>10M – 100M registros / 6–10 datasets</li>
+              <li>Fenómeno dinámico con eventos</li>
+              <li>4–6 condiciones operacionales</li>
+              <li>Automatización mixta</li>
+              <li>Informe por condición</li>
             </ul>
           </article>
           <article class="card">
             <h3>Nivel 3 — Complejo</h3>
-            <p class="priceTag">USD 1.100–1.600</p>
             <ul class="bullets">
-              <li>&gt;16 canales</li>
-              <li>Ruido severo / datos dudosos</li>
-              <li>Informe extendido + evaluación de riesgos</li>
+              <li>&gt; 500M registros / &gt; 25 datasets</li>
+              <li>Impactos, fatiga y no linealidad</li>
+              <li>&gt; 10 condiciones operacionales</li>
+              <li>Manual con criterio experto</li>
+              <li>Rigor legal o certificable</li>
             </ul>
           </article>
         </div>
@@ -446,13 +450,20 @@
             </ul>
           </div>
           <div class="note">
-            <h3>Post‑procesamiento (módulos)</h3>
+            <h3>Post-procesamiento</h3>
+            <p class="muted" style="font-size: 0.85em; margin-bottom: 8px;">El procesamiento avanzado se cotiza como un porcentaje del análisis de confiabilidad (Etapa 1).</p>
             <ul class="bullets">
-              <li>Limpieza + estadística básica: USD 200–300</li>
-              <li>Filtrado + espectro (FFT/PSD): USD 300–450</li>
-              <li>Correcciones + resampling: USD 250–400</li>
+              <li>Limpieza + estadística básica</li>
+              <li>Filtrado + espectro (FFT/PSD)</li>
+              <li>Correcciones + resampling</li>
             </ul>
           </div>
+        </div>
+
+        <div class="callout" style="margin-top: 32px; text-align: center;">
+          <h3>¿Necesita una estimación más precisa?</h3>
+          <p>Utilice nuestro <strong>Índice de Complejidad DAQ</strong> para obtener una precotización basada en las dimensiones reales de sus datos.</p>
+          <a href="cotizacion.html" class="btn">Calcular Nivel IC‑DAQ</a>
         </div>
       </div>
     </section>

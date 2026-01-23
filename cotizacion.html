@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Herramienta de precotización basada en el Índice de Complejidad DAQ." />
+  <title>Análisis de Complejidad | DAQ Insights</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .quote-form {
+      margin-top: 40px;
+    }
+    .dimension {
+      margin-bottom: 40px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .dimension h3 {
+      margin: 0 0 10px;
+      color: var(--brand2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .dimension h3 span {
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+    .dimension p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+    .option {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      align-items: start;
+      gap: 16px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+    .option:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .option input {
+      margin-top: 4px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+    }
+    .option__text {
+      font-size: 15px;
+      font-weight: 600;
+      display: block;
+      color: var(--text);
+    }
+    .option__desc {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .results-panel {
+      position: sticky;
+      bottom: 20px;
+      background: var(--card);
+      border: 1px solid var(--brand);
+      padding: 24px;
+      border-radius: 22px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      z-index: 100;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .results-data {
+      display: flex;
+      gap: 30px;
+    }
+    .result-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .result-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .result-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--brand2);
+    }
+    .p0-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .p0-input input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      width: 100px;
+      font-weight: 700;
+    }
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .contact-info label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+    .contact-info input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+    .full-width {
+      grid-column: span 2;
+    }
+    @media (max-width: 600px) {
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+      .results-panel .btn {
+      padding: 16px 32px;
+      font-size: 16px;
+      min-width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/logo.svg" alt="DAQ Insights" class="brand__logo" />
+          <div class="brand__text">
+            <div class="brand__name">DAQ Insights</div>
+            <div class="brand__tag">Confiabilidad de mediciones • Datos de ensayo • Post‑procesamiento</div>
+          </div>
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Principal">
+        <button class="nav__toggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__toggleBars" aria-hidden="true"></span>
+          <span class="sr">Menú</span>
+        </button>
+        <div id="navMenu" class="nav__menu">
+          <a href="index.html#servicio">Servicio</a>
+          <a href="index.html#paquetes">Paquetes</a>
+          <a href="index.html#proceso">Proceso</a>
+          <a href="index.html#entregables">Entregables</a>
+          <a href="index.html#precios">Precios</a>
+          <a href="cotizacion.html" style="color: var(--brand2); font-weight: 700;">Análisis IC‑DAQ</a>
+          <a class="btn btn--sm" href="index.html#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" class="container narrow">
+    <div class="section__head" style="margin-top: 60px;">
+      <h2>Calculador de Complejidad DAQ</h2>
+      <p class="lead">
+        Determine el nivel de complejidad técnica de su proyecto basado en el <strong>Índice de Complejidad DAQ (IC-DAQ)</strong>.
+      </p>
+    </div>
+
+    <form id="quoteForm" class="quote-form">
+      <!-- 1. Volumen -->
+      <div class="dimension">
+        <h3>1. Volumen de datos <span>(V)</span></h3>
+        <p>Cantidad total de registros capturados en el ensayo. Se calcula como la sumatoria de [columnas × filas × archivos] de cada tipo de dataset. Este factor determina los recursos computacionales y el tiempo de procesamiento de señal requeridos.</p>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="V" value="0" checked>
+            <span class="option__text">&lt; 1 millón de registros totales</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="V" value="1">
+            <div class="option__content">
+              <span class="option__text">1 – 10 millones</span>
+              <span class="option__desc">Escala típica de ensayos de corta duración o baja frecuencia.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="V" value="2">
+            <div class="option__content">
+              <span class="option__text">10 – 100 millones</span>
+              <span class="option__desc">Volúmenes considerables que requieren optimización de carga.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="V" value="3">
+            <div class="option__content">
+              <span class="option__text">100 – 500 millones</span>
+              <span class="option__desc">Gran cantidad de datos, análisis por segmentos necesario.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="V" value="4">
+            <div class="option__content">
+              <span class="option__text">&gt; 500 millones</span>
+              <span class="option__desc">Big Data DAQ. Requiere alta especialización técnica.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 2. Fragmentación -->
+      <div class="dimension">
+        <h3>2. Fragmentación del dataset <span>(F)</span></h3>
+        <p>Número de archivos o datasets independientes que deben ser gestionados, unificados y correlacionados metodológicamente.</p>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="F" value="0" checked>
+            <span class="option__text">1–2 datasets homogéneos</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="F" value="1">
+            <div class="option__content">
+              <span class="option__text">3–5 datasets</span>
+              <span class="option__desc">Gestión manual simple de archivos.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="F" value="2">
+            <div class="option__content">
+              <span class="option__text">6–10 datasets</span>
+              <span class="option__desc">Requiere pre-procesamiento de unificación.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="F" value="3">
+            <div class="option__content">
+              <span class="option__text">11–25 datasets</span>
+              <span class="option__desc">Alta fragmentación operativa.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="F" value="4">
+            <div class="option__content">
+              <span class="option__text">&gt; 25 datasets / etapas</span>
+              <span class="option__desc">Complejidad metodológica crítica.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 3. Fenómeno Físico -->
+      <div class="dimension">
+        <h3>3. Complejidad del fenómeno físico <span>(C)</span></h3>
+        <p>Naturaleza de la señal y los eventos a analizar. La dinámica de la señal define el rigor matemático necesario.</p>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="C" value="0" checked>
+            <span class="option__text">Cuasi-estático / lento</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="C" value="1">
+            <div class="option__content">
+              <span class="option__text">Dinámico suave</span>
+              <span class="option__desc">Variaciones suaves, sin cambios bruscos de régimen.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="C" value="2">
+            <div class="option__content">
+              <span class="option__text">Dinámico + eventos</span>
+              <span class="option__desc">Señales dinámicas con puntos de interés específicos.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="C" value="3">
+            <div class="option__content">
+              <span class="option__text">Impactos / transitorios</span>
+              <span class="option__desc">Eventos de alta energía en periodos muy breves.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="C" value="4">
+            <div class="option__content">
+              <span class="option__text">Impactos + fatiga / no lineal</span>
+              <span class="option__desc">Análisis avanzado de comportamiento estructural o no lineal.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 4. Diversidad Operacional -->
+      <div class="dimension">
+        <h3>4. Diversidad operacional <span>(D)</span></h3>
+        <p>Diferentes condiciones de carga, regímenes de motor, o clímas representados en los datos que rompen la comparabilidad directa.</p>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="D" value="0" checked>
+            <span class="option__text">Una condición</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="D" value="1">
+            <div class="option__content">
+              <span class="option__text">2–3 condiciones</span>
+              <span class="option__desc">Comparativas simples.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="D" value="2">
+            <div class="option__content">
+              <span class="option__text">4–6 condiciones</span>
+              <span class="option__desc">Múltiples escenarios de ensayo.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="D" value="3">
+            <div class="option__content">
+              <span class="option__text">7–10 condiciones</span>
+              <span class="option__desc">Gran variabilidad operacional.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="D" value="4">
+            <div class="option__content">
+              <span class="option__text">&gt; 10 condiciones</span>
+              <span class="option__desc">Diversidad extrema que requiere normalización.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 5. Procesamiento -->
+      <div class="dimension">
+        <h3>5. Nivel de procesamiento requerido <span>(P)</span></h3>
+        <p>Grado de sofisticación de las herramientas matemáticas y algoritmos aplicados para extraer información de valor.</p>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="P" value="0" checked>
+            <span class="option__text">Estadística básica</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="P" value="1">
+            <div class="option__content">
+              <span class="option__text">Filtros / RMS / FFT</span>
+              <span class="option__desc">Procesamiento frecuencial y de limpieza estándar.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="P" value="2">
+            <div class="option__content">
+              <span class="option__text">Segmentación por eventos</span>
+              <span class="option__desc">Identificación y extracción automática de transitorios.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="P" value="3">
+            <div class="option__content">
+              <span class="option__text">Fatiga / rainflow / ciclos</span>
+              <span class="option__desc">Análisis de durabilidad y recuento de ciclos.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="P" value="4">
+            <div class="option__content">
+              <span class="option__text">Modelado / predicción / correlación cruzada</span>
+              <span class="option__desc">Inferencia de variables no medidas o modelos avanzados.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- 6. Trazabilidad -->
+      <div class="dimension">
+        <h3>6. Exigencia de trazabilidad y reporte <span>(T)</span></h3>
+        <p>El nivel de formalidad documental y rigor de auditoría requerido para el entregable final.</p>
+        <div class="options">
+          <label class="option">
+            <input type="radio" name="T" value="0" checked>
+            <span class="option__text">Exploratorio interno</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="T" value="1">
+            <div class="option__content">
+              <span class="option__text">Informe técnico simple</span>
+              <span class="option__desc">Resultados clave y gráficos principales.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="T" value="2">
+            <div class="option__content">
+              <span class="option__text">Informe por condición</span>
+              <span class="option__desc">Desglose detallado de cada régimen operacional.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="T" value="3">
+            <div class="option__content">
+              <span class="option__text">Informe formal auditable</span>
+              <span class="option__desc">Documentación completa de métodos y resultados.</span>
+            </div>
+          </label>
+          <label class="option">
+            <input type="radio" name="T" value="4">
+            <div class="option__content">
+              <span class="option__text">Cliente externo / legal / certificable</span>
+              <span class="option__desc">Rigor extremo para validaciones ante terceros.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="section__head">
+        <h2>Solicitud de Análisis</h2>
+        <p>Complete sus datos para recibir un informe detallado sobre la complejidad de su dataset.</p>
+        <p class="muted" style="font-size: 13px; margin-top: 10px;">
+          <em>Nota: El resultado mostrado es una estimación preliminar. DAQ Insights considera factores adicionales, como la viabilidad de automatización y la calidad de origen de los datos, para determinar el nivel de complejidad final.</em>
+        </p>
+      </div>
+
+      <div class="dimension">
+        <div class="contact-info">
+          <label>
+            Nombre del contacto
+            <input type="text" id="client_name" required placeholder="Ej: Juan Pérez">
+          </label>
+          <label>
+            Email de contacto
+            <input type="email" id="client_email" required placeholder="email@ejemplo.com">
+          </label>
+          <label class="full-width">
+            Nombre del proyecto (Opcional)
+            <input type="text" id="project_name" placeholder="Ej: Análisis Eje Delantero Camión X-100">
+          </label>
+        </div>
+      </div>
+
+      <div class="results-panel">
+        <div class="results-data">
+          <div class="result-item">
+            <span class="result-label">IC-DAQ</span>
+            <span id="ic_daq_value" class="result-value">0</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Nivel</span>
+            <span id="level_value" class="result-value">L0</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" id="copyBtn" class="btn btn--ghost" title="Copiar resumen para pegar en Gmail/Webmail">Copiar Datos</button>
+          <button type="submit" class="btn">Enviar Solicitud</button>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <div class="brand brand--footer">
+          <img src="assets/logo.svg" alt="DAQ Insights" class="brand__logo" />
+          <div class="brand__text">
+            <div class="brand__name">DAQ Insights</div>
+            <div class="brand__tag">Servicios remotos para confiabilidad de mediciones</div>
+          </div>
+        </div>
+        <p class="muted">© <span id="year"></span> DAQ Insights. Todos los derechos reservados.</p>
+      </div>
+      <div class="footer__links">
+        <a href="legal.html">Alcance y términos</a>
+        <a href="privacy.html">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('quoteForm');
+      const icDaqDisplay = document.getElementById('ic_daq_value');
+      const levelDisplay = document.getElementById('level_value');
+
+      const levels = [
+        { id: 'L0', min: 0, max: 4, name: 'Trivial' },
+        { id: 'L1', min: 5, max: 8, name: 'Básico' },
+        { id: 'L2', min: 9, max: 12, name: 'Intermedio' },
+        { id: 'L3', min: 13, max: 16, name: 'Avanzado' },
+        { id: 'L4', min: 17, max: 20, name: 'Complejo' },
+        { id: 'L5', min: 21, max: 24, name: 'Crítico / Experto' }
+      ];
+
+      function calculate() {
+        const formData = new FormData(form);
+        let icDaq = 0;
+        ['V', 'F', 'C', 'D', 'P', 'T'].forEach(dim => {
+          icDaq += parseInt(formData.get(dim) || 0);
+        });
+
+        const maxScore = 24; // 6 dimensiones * 4 puntos máx
+        const percentage = Math.round((icDaq / maxScore) * 100);
+        icDaqDisplay.textContent = `${percentage}%`;
+
+        const level = levels.find(l => icDaq >= l.min && icDaq <= l.max) || levels[0];
+        levelDisplay.textContent = level.id;
+        levelDisplay.title = level.name;
+      }
+
+      form.addEventListener('change', calculate);
+
+      function getBodyText() {
+        const formData = new FormData(form);
+        const name = document.getElementById('client_name').value.trim();
+        const email = document.getElementById('client_email').value.trim();
+        const project = document.getElementById('project_name').value.trim();
+        const icDaqPercent = icDaqDisplay.textContent;
+        const level = levelDisplay.textContent;
+
+        let selectionsText = "";
+        let icDaqRaw = 0;
+        ['V', 'F', 'C', 'D', 'P', 'T'].forEach(dim => {
+          const val = formData.get(dim);
+          icDaqRaw += parseInt(val || 0);
+          const radio = form.querySelector(`input[name="${dim}"][value="${val}"]`);
+          if (radio) {
+            const labelEl = radio.closest('.option').querySelector('.option__text');
+            const labelText = labelEl ? labelEl.textContent.trim() : val;
+            selectionsText += `- ${dim}: ${val} (${labelText})\n`;
+          }
+        });
+
+        return `Solicitud de Análisis Técnico\n\n` +
+          `DATOS DEL CLIENTE:\n` +
+          `- Nombre: ${name || '(no ingresado)'}\n` +
+          `- Email: ${email || '(no ingresado)'}\n` +
+          `- Proyecto: ${project || 'No especificado'}\n\n` +
+          `RESULTADOS DEL ÍNDICE IC-DAQ:\n` +
+          `- Complejidad (Porcentaje): ${icDaqPercent}\n` +
+          `- Nivel de Complejidad: ${level} (Puntaje base: ${icDaqRaw}/24)\n\n` +
+          `DETALLE DE DIMENSIONES:\n` +
+          selectionsText +
+          `\n--\nGenerado desde la herramienta de Análisis IC-DAQ de DAQ Insights.`;
+      }
+
+      document.getElementById('copyBtn').addEventListener('click', () => {
+        const text = getBodyText();
+        navigator.clipboard.writeText(text).then(() => {
+          const originalText = document.getElementById('copyBtn').innerText;
+          document.getElementById('copyBtn').innerText = '¡Copiado!';
+          setTimeout(() => { document.getElementById('copyBtn').innerText = originalText; }, 2000);
+        }).catch(err => {
+          alert('Error al copiar: ' + err);
+        });
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('client_name').value.trim();
+        const email = document.getElementById('client_email').value.trim();
+        const project = document.getElementById('project_name').value.trim();
+        
+        if (!name || !email) {
+          alert('Por favor complete su nombre y email para generar la solicitud.');
+          return;
+        }
+
+        calculate();
+        const bodyText = getBodyText();
+        const subject = `[DAQ Insights] Análisis de Complejidad — ${project || 'Nuevo Proyecto'}`;
+        const mailtoUrl = `mailto:zedlavolecram@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+        
+        window.location.href = mailtoUrl;
+      });
+
+      // Initial calc
+      calculate();
+    })();
+  </script>
+</body>
+
+</html>
